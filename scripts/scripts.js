@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   buildBlock,
   loadHeader,
@@ -47,7 +48,7 @@ async function loadFonts() {
  */
 function buildAutoBlocks(main) {
   try {
-    buildHeroBlock(main);
+    // buildHeroBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -63,6 +64,7 @@ export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
+  decorateLinkedPictures(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
@@ -130,3 +132,17 @@ async function loadPage() {
 }
 
 loadPage();
+
+/**
+ * Decorates linked pictures in a given block.
+ * @param {HTMLElement} block - The block element containing the pictures.
+ */
+function decorateLinkedPictures(block) {
+  block.querySelectorAll('picture + br + a').forEach((a) => {
+    // remove br
+    a.previousElementSibling.remove();
+    const picture = a.previousElementSibling;
+    a.textContent = '';
+    a.append(picture);
+  });
+}

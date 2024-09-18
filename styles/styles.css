@@ -255,3 +255,13 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+.section.hidden {
+  display: none;
+}
+
+header nav .nav-sections img {
+  width: auto;
+  max-height: 22px;
+}
+
