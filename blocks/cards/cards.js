@@ -1,33 +1,26 @@
 export default function decorate(block) {
-  // Add a class to the block
+  // Add the main class to the block
   block.classList.add('cards');
 
-  // Get all card elements
-  const cards = block.querySelectorAll(':scope > div');
+  // Select all card elements within the block
+  const cards = block.querySelectorAll('.cards > div');
 
+  // Iterate over each card
   cards.forEach((card) => {
+    // Add classes to the card and its children
     card.classList.add('card');
+    const imgContainer = card.querySelector('picture');
+    const description = card.querySelector('p:first-of-type');
+    const title = card.querySelector('h3');
+    const linkContainer = card.querySelector('p:last-of-type');
 
-    const imageWrapper = card.querySelector(':scope > div:nth-child(1)');
-    const contentWrapper = card.querySelector(':scope > div:nth-child(2)');
+    imgContainer.classList.add('card-image');
+    description.classList.add('card-description');
+    title.classList.add('card-title');
+    linkContainer.classList.add('card-link-container');
 
-    imageWrapper.classList.add('card-image');
-    contentWrapper.classList.add('card-content');
-
-    const description = contentWrapper.querySelector('p');
-    const title = contentWrapper.querySelector('h3');
-    const link = contentWrapper.querySelector('p > a');
-
-    if (description) {
-      description.classList.add('card-description');
-    }
-
-    if (title) {
-      title.classList.add('card-title');
-    }
-
-    if (link) {
-      link.classList.add('card-link');
-    }
+    // Style the link
+    const link = linkContainer.querySelector('a');
+    link.classList.add('card-link');
   });
 }
