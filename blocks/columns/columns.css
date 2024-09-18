@@ -1,33 +1,77 @@
-.columns > div {
+
+.columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+  background-color: #2d3e50;
+  padding: 40px;
+}
+
+.columns .text-content {
+  background-color: #1b2b38;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.columns .text-content p:first-child {
+  font-size: var(--body-font-size-xs);
+  margin: 0 0 10px 0;
+}
+
+.columns .text-content h2 {
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 20px 0;
+}
+
+.columns .text-content p {
+  font-size: var(--body-font-size-s);
+  margin: 0 0 20px 0;
+}
+
+.columns .text-content a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.columns .column-item-2,
+.columns .column-item-3,
+.columns .column-item-4,
+.columns .column-item-5,
+.columns .column-item-6 {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #1b2b38;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.columns img {
+.columns .column-item-5 {
+  grid-column: span 2;
+}
+
+.columns .column-item-2 img,
+.columns .column-item-3 img,
+.columns .column-item-4 img,
+.columns .column-item-5 img,
+.columns .column-item-6 img {
   width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
 }
 
-.columns > div > div {
-  order: 1;
-}
-
-.columns > div > .columns-img-col {
-  order: 0;
-}
-
-.columns > div > .columns-img-col img {
-  display: block;
-}
-
-@media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
-  }
-
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
+.columns .picture-caption-1,
+.columns .picture-caption-2,
+.columns .picture-caption-3,
+.columns .picture-caption-4,
+.columns .picture-caption-5 {
+  font-size: var(--body-font-size-s);
+  color: white;
+  padding: 10px;
+  text-align: center;
 }

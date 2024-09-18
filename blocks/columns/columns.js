@@ -1,18 +1,25 @@
 export default function decorate(block) {
-  const cols = [...block.firstElementChild.children];
-  block.classList.add(`columns-${cols.length}-cols`);
+  // Apply the main columns class to the block
+  block.classList.add('columns');
 
-  // setup image columns
-  [...block.children].forEach((row) => {
-    [...row.children].forEach((col) => {
-      const pic = col.querySelector('picture');
-      if (pic) {
-        const picWrapper = pic.closest('div');
-        if (picWrapper && picWrapper.children.length === 1) {
-          // picture is only content in column
-          picWrapper.classList.add('columns-img-col');
-        }
-      }
-    });
+  // Apply the necessary classes to child elements
+  const divs = block.querySelectorAll('div > div');
+  divs.forEach((div, index) => {
+    div.classList.add(`column-item-${index + 1}`);
+  });
+
+  // Apply classes to text and picture elements
+  const textDiv = divs[0].querySelector('div');
+  textDiv.classList.add('text-content');
+
+  const pictureDivs = block.querySelectorAll('picture');
+  pictureDivs.forEach((picture, index) => {
+    picture.classList.add(`picture-item-${index + 1}`);
+  });
+
+  // Apply classes to paragraphs under picture elements
+  const pictureParagraphs = block.querySelectorAll('div > div > p:last-child');
+  pictureParagraphs.forEach((p, index) => {
+    p.classList.add(`picture-caption-${index + 1}`);
   });
 }
