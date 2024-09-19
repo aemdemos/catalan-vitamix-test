@@ -1,22 +1,18 @@
 export default function decorate(block) {
-  // Apply necessary classes
+  // Add a new class to the block
   block.classList.add('cards');
 
-  const cards = block.querySelectorAll('.cards > div');
-
-  cards.forEach((card) => {
+  // Iterate over each card and apply necessary class
+  block.querySelectorAll('.cards > div').forEach((card) => {
     card.classList.add('card');
+    const imageContainer = card.querySelector('picture');
+    const description = card.querySelector('p');
+    const title = card.querySelector('h3');
+    const link = card.querySelector('p a');
 
-    const [imageWrapper, textWrapper] = card.children;
-    imageWrapper.classList.add('card-image');
-    textWrapper.classList.add('card-text');
-
-    const [description, title, linkWrapper] = textWrapper.children;
+    imageContainer.classList.add('card-image');
     description.classList.add('card-description');
     title.classList.add('card-title');
-    linkWrapper.classList.add('card-link-wrapper');
-
-    const link = linkWrapper.querySelector('a');
     link.classList.add('card-link');
   });
 }
