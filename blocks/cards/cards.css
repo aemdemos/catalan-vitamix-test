@@ -1,84 +1,72 @@
 
-/* Apply base styles for the cards block */
 .cards {
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
   justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
 }
 
-/* Style individual cards */
 .cards .card {
-  background-color: var(--background-color);
-  border: 1px solid var(--dark-color);
-  border-radius: 0; /* Corners must be straight */
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 350px;
-  text-align: center;
-  transition: transform 0.3s;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.cards .card:hover {
-  transform: scale(1.03);
-}
-
-/* Style the image container */
 .cards .card-image {
-  position: relative;
-  overflow: hidden;
+  width: 100%;
+  height: auto;
 }
 
 .cards .card-image img {
-  display: block;
   width: 100%;
   height: auto;
-  border-bottom: 1px solid var(--dark-color);
-  transition: transform 0.3s;
+  display: block;
+  border-bottom: 1px solid #eee;
 }
 
-.cards .card:hover .card-image img {
-  transform: scale(1.1);
+.cards .card-text {
+  padding: 16px;
+  text-align: center;
 }
 
-/* Style the description */
 .cards .card-description {
   font-size: 14px;
-  color: #e74c3c; /* Red color similar to image */
-  padding: 10px 20px;
-  margin: 0;
-  text-transform: uppercase; /* Capitalize the text */
+  color: #999;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Style the title */
 .cards .card-title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
-  color: var(--text-color);
-  padding: 10px 20px;
-  margin: 0;
-  color: #1d72b8; /* Blue color similar to image */
+  color: #333;
+  margin-bottom: 16px;
 }
 
-/* Style the link container */
-.cards .card-link-container {
-  padding: 10px 20px 20px;
+.cards .card-link-wrapper {
+  margin-top: 16px;
 }
 
-/* Style the link */
 .cards .card-link {
   display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: var(--text-color);
-  background-color: var(--background-color);
-  border: 1px solid var(--text-color);
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #035fe6;
+  border: 1px solid #035fe6;
   border-radius: 4px;
+  text-transform: uppercase;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .cards .card-link:hover {
-  background-color: var(--link-hover-color);
-  color: var(--background-color);
+  background-color: #035fe6;
+  color: #ffffff;
 }
