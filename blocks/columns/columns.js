@@ -1,25 +1,24 @@
 export default function decorate(block) {
-  // Apply the main columns class to the block
   block.classList.add('columns');
 
-  // Apply the necessary classes to child elements
-  const divs = block.querySelectorAll('div > div');
-  divs.forEach((div, index) => {
-    div.classList.add(`column-item-${index + 1}`);
+  const columns = Array.from(block.querySelectorAll('.columns > div > div'));
+  columns.forEach((columnDiv, index) => {
+    columnDiv.classList.add(`column-${index + 1}`);
   });
 
-  // Apply classes to text and picture elements
-  const textDiv = divs[0].querySelector('div');
-  textDiv.classList.add('text-content');
+  // Ensure block has three columns
+  const column1 = document.createElement('div');
+  const column2 = document.createElement('div');
+  const column3 = document.createElement('div');
 
-  const pictureDivs = block.querySelectorAll('picture');
-  pictureDivs.forEach((picture, index) => {
-    picture.classList.add(`picture-item-${index + 1}`);
-  });
+  column1.classList.add('column');
+  column2.classList.add('column');
+  column3.classList.add('column');
 
-  // Apply classes to paragraphs under picture elements
-  const pictureParagraphs = block.querySelectorAll('div > div > p:last-child');
-  pictureParagraphs.forEach((p, index) => {
-    p.classList.add(`picture-caption-${index + 1}`);
-  });
+  column1.append(...columns[0].children);
+  column2.append(...columns[1].children);
+  column3.append(...columns[2].children);
+
+  block.innerHTML = '';
+  block.append(column1, column2, column3);
 }

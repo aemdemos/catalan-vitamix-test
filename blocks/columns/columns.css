@@ -1,77 +1,41 @@
 
 .columns {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px;
-  background-color: #2d3e50;
-  padding: 40px;
-}
-
-.columns .text-content {
-  background-color: #1b2b38;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.columns .text-content p:first-child {
-  font-size: var(--body-font-size-xs);
-  margin: 0 0 10px 0;
-}
-
-.columns .text-content h2 {
-  font-size: var(--heading-font-size-xl);
-  margin: 0 0 20px 0;
-}
-
-.columns .text-content p {
-  font-size: var(--body-font-size-s);
-  margin: 0 0 20px 0;
-}
-
-.columns .text-content a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.columns .column-item-2,
-.columns .column-item-3,
-.columns .column-item-4,
-.columns .column-item-5,
-.columns .column-item-6 {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #1b2b38;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.columns .column-item-5 {
-  grid-column: span 2;
-}
-
-.columns .column-item-2 img,
-.columns .column-item-3 img,
-.columns .column-item-4 img,
-.columns .column-item-5 img,
-.columns .column-item-6 img {
+  justify-content: space-between;
+  background-color: #f5f5f5; /* Background color as per the image */
+  padding: 20px;
+  font-family: var(--body-font-family);
   width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ccc;
 }
 
-.columns .picture-caption-1,
-.columns .picture-caption-2,
-.columns .picture-caption-3,
-.columns .picture-caption-4,
-.columns .picture-caption-5 {
-  font-size: var(--body-font-size-s);
-  color: white;
-  padding: 10px;
-  text-align: center;
+.columns .column {
+  flex: 1;
+  margin: 0 20px; /* Adjust margin between columns */
+}
+
+.columns p {
+  font-weight: bold;
+  margin: 0;
+  font-size: 18px; /* Font size as per the image */
+  color: var(--text-color);
+}
+
+.columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.columns li {
+  margin: 5px 0;
+}
+
+.columns a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 16px; /* Font size as per the image */
+}
+
+.columns a:hover {
+  text-decoration: underline;
 }
