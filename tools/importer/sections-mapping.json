@@ -55,7 +55,7 @@
               "numRows": 0
             },
             "color": "rgba(148, 0, 211, 0.2)",
-            "mapping": "defaultContent",
+            "mapping": "hero",
             "customBlockName": ""
           },
           {
@@ -99,7 +99,7 @@
               }
             ],
             "color": "rgba(148, 0, 211, 0.1)",
-            "mapping": "columns",
+            "mapping": "carousel",
             "customBlockName": ""
           },
           {
